@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DevTools from 'mobx-react-devtools';
 import { 
   Counter,
   SuperMarket
@@ -11,6 +12,7 @@ class App extends Component {
         <Counter />
         <hr />
         <SuperMarket />
+        {process.env.NODE_ENV === 'development' && <DevTools />}
       </div>
     );
   }
