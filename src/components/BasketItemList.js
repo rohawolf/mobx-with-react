@@ -1,0 +1,18 @@
+// src/components/BasketItemList.js
+import React from 'react';
+import { BasketItem } from '../components';
+
+const BasketItemList = () => {
+  return (
+    <div>
+      <BasketItem name="포카칩" price={1500} count={2} />
+      <BasketItem name="생수" price={850} count={1} />
+      <hr />
+      <p>
+        <b>총합: </b> 3850원
+      </p>
+    </div>
+  );
+};
+
+export default BasketItemList;
