@@ -1,4 +1,4 @@
-// src/Counter.js
+// src/components/Counter.js
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 
