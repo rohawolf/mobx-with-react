@@ -5,13 +5,25 @@ import {
   observable
 } from 'mobx';
 
-export default class marketStore {
-  @observable selectedItems = [];
+export default class MarketStore {
+  @observable selectedItems = [
+    {
+      name: '포카칩',
+      price: 1500,
+      count: 2,
+    },
+    {
+      name: '생수',
+      price: 850,
+      count: 1,
+    },
+  ];
 
   @action
-  put = ({ name, price}) => {
+  put = ( name, price ) => {
     const exists = this.selectedItems.find(item => item.name === name);
     if (!exists) {
+      console.log(`${name} 장바구니 추가 `);
       this.selectedItems.push({
         name,
         price,
@@ -23,10 +35,11 @@ export default class marketStore {
   };
 
   @action
-  take = name => {
+  take = (name) => {
     const itemToTake = this.selectedItems.find(item => item.name === name);
     itemToTake.count--;
     if (itemToTake.count === 0) {
+      console.log(`${name} 장바구니 삭제 `);
       this.selectedItems.remove(itemToTake);
     }
   };
@@ -35,7 +48,7 @@ export default class marketStore {
   get total() {
     console.log('calculating...');
     return this.selectedItems.reduce((prev, curr) => {
-      return prev + curr.price * curr.count
+      return prev + curr.price * curr.count;
     }, 0);
   }
 

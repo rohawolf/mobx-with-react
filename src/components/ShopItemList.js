@@ -1,6 +1,10 @@
 // src/components/ShopItemList.js
 import React from 'react';
 import { ShopItem } from '../components';
+import {
+  inject,
+  observer,
+} from 'mobx-react';
 
 const items = [
   {
@@ -21,9 +25,20 @@ const items = [
   },
 ];
 
-const ShopItemList = () => {
-  const itemList = items.map(item => <ShopItem {...item} key={item.name} />);
+const ShopItemList = ({ onPut }) => {
+  const itemList = items.map(item => (
+    <ShopItem 
+      key={item.name}
+      name={item.name} 
+      price={item.price}
+      onPut={onPut} 
+    />
+  ));
   return <div>{itemList}</div>;
 }
 
-export default ShopItemList;
+export default inject(
+  ({ market }) => ({
+    onPut: market.put,
+  })
+)(observer(ShopItemList));
