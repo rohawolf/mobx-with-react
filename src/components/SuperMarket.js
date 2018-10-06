@@ -4,6 +4,7 @@ import {
   BasketItemList,
   ShopItemList,
   SuperMarketTemplate,
+  TotalPrice,
 } from '../components';
 
 const SuperMarket = () => {
@@ -11,6 +12,7 @@ const SuperMarket = () => {
     <SuperMarketTemplate 
       items={<ShopItemList />} 
       basket={<BasketItemList />} 
+      total={<TotalPrice />}
     />
   );
 }

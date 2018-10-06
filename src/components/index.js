@@ -5,6 +5,7 @@ import ShopItem from './ShopItem';
 import ShopItemList from './ShopItemList';
 import SuperMarket from './SuperMarket';
 import SuperMarketTemplate from './SuperMarketTemplate';
+import TotalPrice from './TotalPrice';
 
 export {
   BasketItem,
@@ -14,4 +15,5 @@ export {
   ShopItemList,
   SuperMarket,
   SuperMarketTemplate,
+  TotalPrice,
 };
